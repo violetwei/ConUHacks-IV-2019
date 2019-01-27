@@ -21,12 +21,15 @@ class MessageList extends Component {
             },
             message: { fontSize: 15 },
         }
-
+        
+        var bg=require('./src/image/BackgroundImage.jpg')
+        
         return (
             <div style={{
                 ...this.props.style,
                 ...styles.container,
             }}>
+            <div className='background-image' style ={ { backgroundImage: "url("+bg+")" } }>               
                 <ul style={styles.ul}>
                     {this.props.messages.map((message, index) => (
                         <li key={index} style={styles.li}>
@@ -34,6 +37,7 @@ class MessageList extends Component {
                                 <span style={styles.senderUsername}>{message.senderId}</span>{' '}   
                             </div>
                             <p style={styles.message}>{message.text}</p>
+                            <br />
                         </li>
                     ))}
                 </ul>
