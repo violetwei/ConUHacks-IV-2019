@@ -140,4 +140,4 @@ Create a stateless MessageList.js component in ./src/components
 
 ### Send messages
 
-- [x] To allow users to send messages -> create a SendMessageForm.js component in ./src/components
+- \[x] To allow users to send messages -> create a SendMessageForm.js component in ./src/components
