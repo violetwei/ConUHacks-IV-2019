@@ -42,6 +42,8 @@ Link to Chatkit API: https://pusher.com/chatkit?utm_source=github&utm_campaign=b
 
 #### Integrate into App
 
+![jietu20190127-135514](https://user-images.githubusercontent.com/31902939/51805437-32ab1b00-223b-11e9-9678-d56be7b69619.jpg)
+
 There will be public and private rooms with simple authentication mechanism.
 
 The "online presence" feature will display which users are online or offline in rooms or across whole chat application.
