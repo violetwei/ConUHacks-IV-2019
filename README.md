@@ -16,9 +16,7 @@ This is a web-based chat application built with React and Chatkit API.
 
 ![jietu20190127-134505](https://user-images.githubusercontent.com/31902939/51805301-d4ca0380-2239-11e9-9e76-dd82609eff60.jpg)
 
-### React - A JavaScript library for building user interfaces
-
-https://reactjs.org/
+### [React](https://reactjs.org/) - A JavaScript library for building user interfaces
 
 #### Declarative
 React makes it painless to create interactive UIs. Design simple views for each state in your application, and React will efficiently update and render just the right components when your data changes.
@@ -36,7 +34,7 @@ Chatkit is a hosted API that helps to build awesome chat features for applicatio
 
 Chatkit has a minimal but powerful API that manages all of the chat data.
 
-Link to Chatkit API: https://pusher.com/chatkit?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit
+Link to [Chatkit](https://pusher.com/chatkit?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit) API 
 
 #### Create an instance
 
