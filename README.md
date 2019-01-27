@@ -42,6 +42,10 @@ The "typing indicators" feature shows users when someone else is typing in room.
 
 Using cross-platform SDKs, all chat data is sent to hosted API where we manage chat state and broadcast it.
 
+## Tasks
+
+Generally speaking, take new messages and update the React state.
+
 ### Create Chatkit Instance
 
 To create a Chatkit instance, go to:https://dash.pusher.com/authenticate?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit&redirectTo=%2F%3Futm_source%3Dgithub%26utm_campaign%3Dbuild-a-slack-clone-with-react-and-pusher-chatkitand At dashboard hit 'Create new'.
@@ -125,3 +129,15 @@ After having a Chatkit connection, continue building chat features.
 Create a stateless MessageList.js component in ./src/components
 
 #### Update ChatScreen.js
+
+1. Once connect to Chatkit, will get a currentUser object that represents the current connected user
+
+2. Chatkit is "user-driven" -> not all interactions happen on the currentUser, so call subscribeToRoom on the currentUser (currentUser.subscribeToRoom)
+
+3. subscribeToRoom takes an event handler called onMessage that is called in real-time each time a new message arrives
+
+4. Specified the messageLimit, onMessage is called retroactively for up to 'messageLimit' recent messages, which means after refreshing the page, will see up to 'messageLimit' recent chat messages.
+
+### Send messages
+
+- [x] To allow users to send messages -> create a SendMessageForm.js component in ./src/components
