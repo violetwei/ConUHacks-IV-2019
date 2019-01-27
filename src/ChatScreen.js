@@ -109,7 +109,7 @@ class ChatScreen extends Component {
         return (
             <div style={styles.container}>
                 <header style={styles.header}>
-                    <h2>Let's Chat</h2>
+                    <h2>Let us Chat</h2>
                 </header>
                 <div style={styles.chatContainer}>
                     <aside style={styles.whosOnlineListContainer}>
