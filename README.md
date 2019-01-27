@@ -63,3 +63,65 @@ Installing @pusher/chatkit-server: npm install --save @pusher/chatkit-server
 3. In the /users route, create a Chatkit user through our chatkit instance.
 
 4. When someone first connects to Chatkit, a request will be sent to /authenticate to authenticate them. The server needs to respond with a token (returned by chatkit.authenticate) if the request is valid.
+
+### Identify user
+
+Once the user hit Submit button after entered the username, the system will send the username to the server and create a Chatkit user if one doesn't exist.
+
+To collect the user's name, create a component called UsernameForm.js in in ./src/components/  
+
+#### Update App.js
+
+1. Import the UsernameForm component. It uses a common React pattern called controlled components.
+
+2. In the render function, render the UsernameForm and hook up the onUsernameSubmitted event handler.
+
+3. When onUsernameSubmitted is called, send a POST request to the /users route we just defined. If the request is successful, update this.state.username to make possible to reference it later. Otherwise, console.error the error.
+
+Run the application using npm start and see if the screen is rendered.
+
+### Render chat screen
+
+Once the username has been submitted, transit to he chat screen. 
+
+-> Need to create a ChatScreen.js component in ./src
+
+#### Update App.js
+
+Rather than use a router, conditionally render the screen based on this.state.currentScreen
+
+### Connect to Chatkit instance
+
+Install @pusher/chatkit-client: npm install --save @pusher/chatkit-client
+
+#### Update ChatScreen.js
+
+1. Import Chatkit
+
+2. Instantiate Chatkit ChatManager with our instanceLocator, userId and a custom TokenProvider. 
+
+3. Once ChatManager has been initialised, call connect. connect happens asynchronously and a Promise is returned. 
+
+### Create a Chatkit room
+
+By using Chatkit, all messages will be sent to a Chatkit room.
+
+Rooms can be created programmatically or in the dashboard Inspector.
+
+Important: note the unique Room id 
+
+### Create UI layout
+
+Break down each feature into independent.
+
+#### React components:
+
+WhosOnlineList.js; MessageList.js; TypingIndicator.js; SendMessageForm.js
+
+### Subscribe new messages
+
+After having a Chatkit connection, continue building chat features.
+
+Create a stateless MessageList.js component in ./src/components
+
+#### Update ChatScreen.js
