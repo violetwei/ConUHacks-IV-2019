@@ -26,6 +26,8 @@ React components implement a render() method that takes input data and returns w
 
 Chatkit is a hosted API that helps to build awesome chat features for application.
 
+Chatkit has a minimal but powerful API that manages all of the chat data.
+
 Link to Chatkit API: https://pusher.com/chatkit?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit
 
 #### Create an instance
@@ -44,7 +46,7 @@ Using cross-platform SDKs, all chat data is sent to hosted API where we manage c
 
 ## Tasks
 
-Generally speaking, take new messages and update the React state.
+Generally speaking, take new messages and update the React state.(Take chat data and render it for the user)
 
 Most of the code involves hooking up Chatkit events and their associated data to React UI components.
 
