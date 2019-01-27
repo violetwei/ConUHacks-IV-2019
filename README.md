@@ -46,6 +46,8 @@ Using cross-platform SDKs, all chat data is sent to hosted API where we manage c
 
 Generally speaking, take new messages and update the React state.
 
+Most of the code involves hooking up Chatkit events and their associated data to React UI components.
+
 ### Create Chatkit Instance
 
 To create a Chatkit instance, go to:https://dash.pusher.com/authenticate?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit&redirectTo=%2F%3Futm_source%3Dgithub%26utm_campaign%3Dbuild-a-slack-clone-with-react-and-pusher-chatkitand At dashboard hit 'Create new'.
@@ -56,31 +58,31 @@ Remember: Instance Locator and Secret Key in the Keys tab.
 
 Since most interactions will happen on the client, Chatkit needs a server counterpart to create and manage users.
 
-Installing @pusher/chatkit-server: npm install --save @pusher/chatkit-server 
+- [x] Installing @pusher/chatkit-server: npm install --save @pusher/chatkit-server 
 
 #### Update server.js 
 
-1. import Chatkit from @pusher/chatkit-server
+- [x] 1. import Chatkit from @pusher/chatkit-server
 
-2. instantiate chatkit instance using the Instance Locator and Key.
+- [x] 2. instantiate chatkit instance using the Instance Locator and Key.
 
-3. In the /users route, create a Chatkit user through our chatkit instance.
+- [x] 3. In the /users route, create a Chatkit user through our chatkit instance.
 
-4. When someone first connects to Chatkit, a request will be sent to /authenticate to authenticate them. The server needs to respond with a token (returned by chatkit.authenticate) if the request is valid.
+- [x] 4. When someone first connects to Chatkit, a request will be sent to /authenticate to authenticate them. The server needs to respond with a token (returned by chatkit.authenticate) if the request is valid.
 
 ### Identify user
 
 Once the user hit Submit button after entered the username, the system will send the username to the server and create a Chatkit user if one doesn't exist.
 
-To collect the user's name, create a component called UsernameForm.js in in ./src/components/  
+- [x] To collect the user's name, create a component called UsernameForm.js in in ./src/components/  
 
 #### Update App.js
 
-1. Import the UsernameForm component. It uses a common React pattern called controlled components.
+- [x] 1. Import the UsernameForm component. It uses a common React pattern called controlled components.
 
-2. In the render function, render the UsernameForm and hook up the onUsernameSubmitted event handler.
+- [x] 2. In the render function, render the UsernameForm and hook up the onUsernameSubmitted event handler.
 
-3. When onUsernameSubmitted is called, send a POST request to the /users route we just defined. If the request is successful, update this.state.username to make possible to reference it later. Otherwise, console.error the error.
+- [x] 3. When onUsernameSubmitted is called, send a POST request to the /users route we just defined. If the request is successful, update this.state.username to make possible to reference it later. Otherwise, console.error the error.
 
 Run the application using npm start and see if the screen is rendered.
 
@@ -88,7 +90,7 @@ Run the application using npm start and see if the screen is rendered.
 
 Once the username has been submitted, transit to he chat screen. 
 
--> Need to create a ChatScreen.js component in ./src
+- [x] -> Need to create a ChatScreen.js component in ./src
 
 #### Update App.js
 
@@ -96,15 +98,15 @@ Rather than use a router, conditionally render the screen based on this.state.cu
 
 ### Connect to Chatkit instance
 
-Install @pusher/chatkit-client: npm install --save @pusher/chatkit-client
+- [x] Install @pusher/chatkit-client: npm install --save @pusher/chatkit-client
 
 #### Update ChatScreen.js
 
-1. Import Chatkit
+- [x] 1. Import Chatkit
 
-2. Instantiate Chatkit ChatManager with our instanceLocator, userId and a custom TokenProvider. 
+- [x] 2. Instantiate Chatkit ChatManager with our instanceLocator, userId and a custom TokenProvider. 
 
-3. Once ChatManager has been initialised, call connect. connect happens asynchronously and a Promise is returned. 
+- [x] 3. Once ChatManager has been initialised, call connect. connect happens asynchronously and a Promise is returned. 
 
 ### Create a Chatkit room
 
@@ -120,24 +122,68 @@ Break down each feature into independent.
 
 #### React components:
 
-WhosOnlineList.js; MessageList.js; TypingIndicator.js; SendMessageForm.js
+- [x] WhosOnlineList.js; MessageList.js; TypingIndicator.js; SendMessageForm.js
 
 ### Subscribe new messages
 
 After having a Chatkit connection, continue building chat features.
 
-Create a stateless MessageList.js component in ./src/components
+- [x] Create a stateless MessageList.js component in ./src/components
 
 #### Update ChatScreen.js
 
-1. Once connect to Chatkit, will get a currentUser object that represents the current connected user
+- [x] 1. Once connect to Chatkit, will get a currentUser object that represents the current connected user
 
-2. Chatkit is "user-driven" -> not all interactions happen on the currentUser, so call subscribeToRoom on the currentUser (currentUser.subscribeToRoom)
+- [x] 2. Chatkit is "user-driven" -> not all interactions happen on the currentUser, so call subscribeToRoom on the currentUser (currentUser.subscribeToRoom)
 
-3. subscribeToRoom takes an event handler called onMessage that is called in real-time each time a new message arrives
+- [x] 3. subscribeToRoom takes an event handler called onMessage that is called in real-time each time a new message arrives
 
-4. Specified the messageLimit, onMessage is called retroactively for up to 'messageLimit' recent messages, which means after refreshing the page, will see up to 'messageLimit' recent chat messages.
+- [x] 4. Specified the messageLimit, onMessage is called retroactively for up to 'messageLimit' recent messages, which means after refreshing the page, will see up to 'messageLimit' recent chat messages.
 
 ### Send messages
 
 - \[x] To allow users to send messages -> create a SendMessageForm.js component in ./src/components
+
+#### Update ChatScreen.js
+
+The SendMessageForm component should be similar to theWhatIsYourUsernameForm component defined earlier.
+
+- [x] After the SendMessageForm is submitted, access this.state.currentUser and call sendMessage.
+
+ChatScreen is a container component that manages application state and renders the UI using components. 
+
+### Add realtime 'typing indicators' feature
+
+With the help of Chatkit API, will be able to add 'typing indicators' with little effort.
+
+- [x] Create a TypingIndicator.js component in ./src/components
+
+#### Update ChatScreen.js
+
+By using Chatkit API, 'typing indicators' breaks down to two fundamental actions:
+
+1. Calling currentUser.userIsTyping when the current user starts typing.
+
+2. Listening to userStartedTyping and userStoppedTyping events
+
+If the service doesn't receive a userIsTyping event after a few seconds, Chatkit API assumes the currentUser has stopped typing. 
+
+Therefore, there is no need to manually raise an event when someone stops typing.
+
+### Add 'online presence' list
+
+- [x] Use Chatkit's "online presence" feature to render a list of users and their real-time online status.
+
+- [x] Create a WhosOnlineList.js component in /src/components
+
+#### Update ChatScreen.js
+
+- [x] Manage the state of users in currentRoom.users.
+
+As users connect and disconnect, state is dynamically updated. 
+
+- [x] currentRoom.users should always refelect the current state of your chat app.
+
+Therefore, when users come online or go offline (onPresenceChange), or new users join (onUserAdded)
+
+- [x] -> Call forceUpdate which tells React to evaluate currentRoom.users and update the UI.
