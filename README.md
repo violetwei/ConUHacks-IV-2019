@@ -28,13 +28,11 @@ React can also render on the server using Node and power mobile apps using React
 
 React components implement a render() method that takes input data and returns what to display. This example uses an XML-like syntax called JSX. Input data that is passed into the component can be accessed by render() via this.props.
 
-### Chatkit - The Most Extensible API To Build In-App Messaging
+### [Chatkit](https://pusher.com/chatkit?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit) - The Most Extensible API To Build In-App Messaging
 
 Chatkit is a hosted API that helps to build awesome chat features for application.
 
 Chatkit has a minimal but powerful API that manages all of the chat data.
-
-Link to [Chatkit](https://pusher.com/chatkit?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit) API 
 
 #### Create an instance
 
@@ -60,7 +58,7 @@ Most of the code involves hooking up Chatkit events and their associated data to
 
 ### Create Chatkit Instance
 
-To create a Chatkit instance, go to:https://dash.pusher.com/authenticate?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit&redirectTo=%2F%3Futm_source%3Dgithub%26utm_campaign%3Dbuild-a-slack-clone-with-react-and-pusher-chatkitand At dashboard hit 'Create new'.
+To create a Chatkit instance, go to [here](https://dash.pusher.com/authenticate?utm_source=github&utm_campaign=build-a-slack-clone-with-react-and-pusher-chatkit&redirectTo=%2F%3Futm_source%3Dgithub%26utm_campaign%3Dbuild-a-slack-clone-with-react-and-pusher-chatkitand) At the dashboard hit 'Create new'.
 
 Remember: Instance Locator and Secret Key in the Keys tab.
 
