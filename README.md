@@ -12,6 +12,10 @@ This is a web-based chat application built with React and Chatkit API.
 
 3. chat history(all previous messages can be seen by the new user joined to the room)
 
+### Preview
+
+![jietu20190127-134505](https://user-images.githubusercontent.com/31902939/51805301-d4ca0380-2239-11e9-9e76-dd82609eff60.jpg)
+
 ### React - A JavaScript library for building user interfaces
 
 https://reactjs.org/
