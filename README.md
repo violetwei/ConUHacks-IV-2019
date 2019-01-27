@@ -2,11 +2,15 @@
 
 ## ConUHacks 2019 project: Real-time chat application 
 
-This is a web-based chat application built with React and Chatkit. 
+This is a web-based chat application built with React and Chatkit API. 
 
 #### Features included
 
-typing indicators, online presence list, chat history(all previous messages can be seen by the new user joined to the room)
+1. typing indicators
+
+2. online presence list
+
+3. chat history(all previous messages can be seen by the new user joined to the room)
 
 ### React - A JavaScript library for building user interfaces
 
