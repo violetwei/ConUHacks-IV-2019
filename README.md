@@ -1,6 +1,6 @@
 # ConUHacks-IV-2019
 
-## ConUHacks 2019 project: Real-time chat application 
+## ConUHacks 2019 project: Real-time chat application [Devpost](https://devpost.com/software/conuhacks-iv-2019)
 
 This is a web-based chat application built with React and Chatkit API. 
 
